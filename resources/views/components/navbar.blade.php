@@ -12,13 +12,9 @@
             <a href="#" class="ml-5">Contact us</a>
         </div>
         <div class="cta-nav sm:hidden md:flex md:items-center md:py-0 px-4 bg-[#025fff] text-white rounded-[5px]">
-            {{-- <a href="/login">
-                <button>Login</button>
-            </a> --}}
-            <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+
+            <a href="#">
                 <button class="  sm:px-[38px] sm:py-[7px]  bg-[#025fff] mt-0 text-white rounded-md ">Login</button>
-
-
             </a>
         </div>
     </nav>
@@ -27,19 +23,3 @@
         <a href="/"><x-weblgo></x-weblgo></a>
 
     </div>
-    {{-- login modal script 💪🏼💪🏾 --}}
-    <script>
-        document.getElementById('loginButton').addEventListener('click', function() {
-            const mentorRadio = document.getElementById('mentorRadio');
-            const menteeRadio = document.getElementById('menteeRadio');
-
-            if (mentorRadio.checked) {
-                // Redirect to the mentor sign-up page
-                window.location.href = '/login/mentor';
-            } else if (menteeRadio.checked) {
-                // Redirect to the mentee sign-up page
-                window.location.href = '/login/mentee';
-            }
-
-        });
-    </script>

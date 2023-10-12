@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Course;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
 
 Route::get('/', function () {
@@ -10,8 +10,8 @@ Route::get('/', function () {
 })->name('index');
 
 // ⭐signup links⭐
-Route::view('signup/mentor', 'mentorsignup');
-Route::view('signup/mentee', 'menteesignup');
+// Route::view('signup/mentor', 'mentorsignup');
+// Route::view('signup/mentee', 'menteesignup');
 
 // Route::view('login/mentor', 'mentorlogin');
 Route::view('login/mentor', 'mentorlogin');
@@ -43,8 +43,8 @@ Route::get('/welcome', function () {
 });
 // end
 
-// Route::post('/signup', 'AuthController@store');
-Route::post('/signup', [AuthController::class, 'store']);
+// // Route::post('/signup', 'UserController@store');
+// Route::post('/signup', [UserController::class, 'store']);
 
 
 // ⭐Yt tutorial about image upload begins⭐
@@ -52,8 +52,13 @@ Route::match(['get', 'post'], '/emp', [EmployeeController::class, 'index']);
 
 Route::post('/addimage', [EmployeeController::class, 'store'])->name('addimage');
 
+
 // ⭐additional
 // Route::resource('employee',EmployeeController::class)->except(['show','edit','update','delete']);
 // Route::post('/reg', [EmployeeController::class,'store'])->name('reg');
 
 Route::view('admin', './mentors/admin');
+
+// ⚒️ Routes for signup⚒️
+Route::view('register', 'register');
+Route::post('/signup', [UserController::class, 'store'])->name('signup');

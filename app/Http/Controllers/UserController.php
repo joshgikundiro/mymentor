@@ -16,11 +16,21 @@ class UserController extends Controller
     }
     public function store(Request $request)
     {
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
+        $user = new User();
+        if ($request->hasFile('profilePicture')) {
+            $fileName = time() . '.' . $request->profilePicture->getClientOriginalExtension();
+            $request->profilePicture->storeAs('public/images', $fileName);
+            $user->profilePicture = $fileName;
+        }
+        $user->fullname = $request->input('fullname');
+        $user->phoneNumber = $request->input('phoneNumber');
+        $user->address = $request->input('address');
+        $user->email = $request->input('email');
         $user->password = bcrypt($request->password);
         $user->role = $request->role;
+        // $user->profilePicture = $fileName;
+
+        // $request->profilePicture->storeAs('public/images', $fileName);
         $user->save();
 
         if ($request->role == 1) {
@@ -33,6 +43,9 @@ class UserController extends Controller
             $mentee->save();
         }
 
-        return redirect()->route('users.index');
+        return redirect()->route('index')->with([
+            'message' => 'User added successfully!',
+            'status' => 'success'
+        ]);
     }
 }

@@ -1,16 +1,16 @@
 <?php
 
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\User;
 
 class Mentee extends Model
 {
-    protected $table= 'mentees';
-    protected $fillable = [
-        'user_id', // Add other fields as needed
-    ];
-
-    public function user()
+    use HasFactory;
+    protected $guarded = ['id'];
+    
+    public function mentee()
     {
         return $this->belongsTo(User::class);
     }

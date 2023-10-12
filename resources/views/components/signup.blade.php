@@ -3,15 +3,14 @@
 </style>
 <div class=" my-4 md:px-5  sm:flex-col sm:my-0 sm:w-full md:flex md:flex-col lg:flex lg:flex-row  lg:w-[70%] lg:mx-auto"
     id="signup">
-    {{-- <form action="{{ url('/signup') }}" method="POST" class="lg:d-flex  lg:flex-column lg:gap-2 lg:flex-col"> --}}
-    <form action="" method="POST" class=" sm:flex sm:flex-col bg-[#f7f7f7] px-5 md:p-5 gap-2">
+    <form action="/signup" method="POST" class=" sm:flex sm:flex-col bg-[#f7f7f7] px-5 md:p-5 gap-2" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="h2 p-4" style="font-family: var(--sans-1);font-weight:600;font-size:var(--font-25)">
-                Register as a mentee</div>
+                Register, do greater thing !</div>
             <div class="col">
                 <label for="name" class="mb-2">Full names</label>
-                <input type="text" class="form-control" placeholder="Ex: Joe" aria-label="full names" name="fullName"
+                <input type="text" class="form-control" placeholder="Ex: Joe" aria-label="full names" name="fullname"
                     required>
             </div>
 
@@ -21,12 +20,6 @@
                 <label for="" class="mb-2">Email</label>
                 <input type="text" class="form-control" placeholder="ex: joedeepdoe@gmail.com" aria-label="Email"
                     name="email" required>
-            </div>
-            <div class="col  ">
-                <label for="" class="mb-2">Username</label>
-
-                <input type="text" class="form-control" placeholder="Enter username" aria-label="username"
-                    name="userName" required>
             </div>
         </div>
         <div class="row">

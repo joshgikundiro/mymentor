@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
-            $table->string('profession');
-            $table->text('bio');
+            $table->string('profession')->nullable();
+            $table->text('bio')->nullable();
         });
         // ⭐relation to the users table
         Schema::table('mentors', function (Blueprint $table) {

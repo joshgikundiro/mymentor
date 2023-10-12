@@ -1,9 +1,8 @@
-<style>
+{{-- <style>
     @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500;600;700&display=swap')
 </style>
 <div class=" my-4 md:px-5  sm:flex-col sm:my-0 sm:w-full md:flex md:flex-col lg:flex lg:flex-row  lg:w-[70%] lg:mx-auto"
     id="signup">
-    {{-- <form action="{{ url('/signup') }}" method="POST" class="lg:d-flex  lg:flex-column lg:gap-2 lg:flex-col"> --}}
     <form action="" method="POST" class=" sm:flex sm:flex-col bg-[#f7f7f7] px-5 md:p-5 gap-2">
         @csrf
         <div class="row">
@@ -105,4 +104,4 @@
     </div>
 </div>
 
-</div>
+</div> --}}

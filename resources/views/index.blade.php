@@ -64,28 +64,14 @@
                             <span class="quoteOwner sm:self-center lg:self-start md:self-center">–Ken Blanchard</span>
                         </div>
                         <div class="cta2 sm:flex sm:justify-center lg:justify-center md:gap-4 ">
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal">
+                            <a href="/register">
                                 <x-btn-pri>
                                     <x-slot:content>
                                         Get Started
                                     </x-slot:content>
                                 </x-btn-pri>
                             </a>
-                            <x-signup-modal>
-                                <x-slot:modeltitle>
-                                    Register to myMentor as
-                                </x-slot:modeltitle>
-                                <x-slot:option1>
-                                    mentor
-                                </x-slot:option1>
-                                <x-slot:option2>
-                                    mentee
-                                </x-slot:option2>
-                                <x-slot:cta>
-                                    Submit
-                                </x-slot:cta>
-
-                            </x-signup-modal>
+                           
 
                             <a href="/logins"><button
                                     class="button sm:border-solid sm:border-2 sm:border-[#025fff]  text-[#025fff] sm:px-[42px] rounded-md sm:py-[5px] sm:mt-28 hover:text-[#fff]">Login</button></a>
@@ -215,10 +201,8 @@
                         interests
                         and goals.</li>
                     <div class="sm:flex sm:justify-center content-center lg:justify-start">
-                        {{-- <button
-                            class="bg-[#025fff] sm:w-36 font-bold sm:py-3 sm:flex sm:rounded-md sm:justify-center sm:mt-4 buttony "><a
-                                href="/signup" style="color: white;">Register now</a></button> --}}
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal">
+
+                        <a href="/register">
                             <x-btn-primary>
 
                                 <x-slot:content>
@@ -251,36 +235,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
-    <script>
-        document.getElementById('signupButton').addEventListener('click', function() {
-            const mentorRadio = document.getElementById('mentorRadio');
-            const menteeRadio = document.getElementById('menteeRadio');
 
-            if (mentorRadio.checked) {
-                // Redirect to the mentor sign-up page
-                window.location.href = '/signup/mentor';
-            } else if (menteeRadio.checked) {
-                // Redirect to the mentee sign-up page
-                window.location.href = '/signup/mentee';
-            }
-        });
-    </script>
-    {{-- login modal script 💪🏼💪🏾
-    <script>
-        document.getElementById('loginButton').addEventListener('click', function() {
-            const mentorRadio = document.getElementById('mentorRadio');
-            const menteeRadio = document.getElementById('menteeRadio');
-
-            if (mentorRadio.checked) {
-                // Redirect to the mentor sign-up page
-                window.location.href = '/login/mentor';
-            } else if (menteeRadio.checked) {
-                // Redirect to the mentee sign-up page
-                window.location.href = '/login/mentee';
-            }
-
-        });
-    </script> --}}
 
 
 </body>
