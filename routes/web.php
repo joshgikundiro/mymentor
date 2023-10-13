@@ -5,6 +5,7 @@ use App\Models\Course;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\MentorController;
+use App\Models\User;
 
 
 use Illuminate\Contracts\Session\Session;
@@ -53,11 +54,6 @@ Route::get('allmentors', [MentorController::class, 'viewall'])->name('allmentors
 Route::get('profile', [MentorController::class, 'profileview'])->name('profile')->middleware('auth');
 Route::put('/profile/update', [MentorController::class, 'update'])->name('profile.update')->middleware('auth');
 Route::get('/profile/edit', [MentorController::class, 'profileedit'])->name('profile.edit')->middleware('auth');
+Route::get('/mentor/{mentor}',[MentorController::class, 'showProfile'])->name('mentor.profile')->middleware('auth')->where('mentor', '.+');
 
-Route::get('/mentors/{mentor}', [MentorController::class, 'show'])->name('mentors.show');
-
-
-
-
-// 📝Routes for mentee profile📝
 

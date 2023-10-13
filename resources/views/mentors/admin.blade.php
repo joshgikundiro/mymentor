@@ -36,7 +36,7 @@
                                 <div class="mt-4 flex justify-between">
                                     <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Send
                                         Request</button>
-                                    <a href="/mentors/{mentor}">
+                                    <a href="/mentor/{{ $mentor->id }}">
                                         <button class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">View
                                             Profile</button>
                                     </a>

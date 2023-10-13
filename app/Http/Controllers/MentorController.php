@@ -54,11 +54,9 @@ class MentorController extends Controller
 
     }
     // ⚒️function to show mentor view profile⚒️
-    public function show($id)
-{
-    $mentor = User::findOrFail($id);
-    return view('mentors.mentorprofile', compact('mentor'));
-    // return view('mentor.mentorprofile', compact('mentor'));
-}
-}
+    public function showProfile(Mentor $mentor)
+    {
 
+        return view('mentors.mentorprofile', ['mentor' => $mentor]);
+    }
+}
