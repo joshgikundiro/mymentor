@@ -1,7 +1,6 @@
 
 <div class=" my-4  justify-center sm:flex-col sm:my-0 sm:w-full md:flex md:flex-col lg:flex lg:flex-row  lg:w-[70%] lg:mx-auto"
             id="signup">
-            {{-- <form action="{{ url('register') }}" method="POST" class="lg:d-flex  lg:flex-column lg:gap-2 lg:flex-col"> --}}
             <form action="" method="POST" class=" sm:flex sm:flex-col md:p-5 bg-[#f9f9f9] lg:w-50 ">
                 @csrf
                 <div class="row">

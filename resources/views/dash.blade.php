@@ -14,6 +14,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="{{ asset('css/dash.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
@@ -53,7 +54,7 @@
                     class="offcanvas-body fixed top-0 left-0 z-40 w-64 h-screen transition-transform  translate-x-0 ">
 
                     <nav class="flex flex-col">
-                        <a href="/welcome" class="flex px-3"><x-weblgo-ff></x-weblgo-ff></a>
+                        <a href="mentor" class="flex  px-3"><x-weblgo-ff></x-weblgo-ff></a>
                         <ul class="flex text-white flex-col font-semibold">
                             <li
                                 class=" flex mb-2 p-3 justify-start  space-x-4 w-100 hover:bg-blue-700 hover:border-b-2">
@@ -65,7 +66,7 @@
                                         d="M16.403 12.652a3 3 0 000-5.304 3 3 0 00-3.75-3.751 3 3 0 00-5.305 0 3 3 0 00-3.751 3.75 3 3 0 000 5.305 3 3 0 003.75 3.751 3 3 0 005.305 0 3 3 0 003.751-3.75zm-2.546-4.46a.75.75 0 00-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <a href="">Profile</a>
+                                <a href="profile">Profile</a>
                             </li>
                             <li
                                 class=" flex mb-2 p-3 justify-start space-x-4 w-100 hover:bg-blue-700 hover:border-b-2 ">
@@ -114,6 +115,7 @@
                         </ul>
                     </nav>
                     <ul class="text-white font-bold">
+
                         <li class=" flex mt-32 p-3 justify-start space-x-4 w-100 hover:bg-blue-700 hover:border-b-2 ">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 class="w-5 h-5">
@@ -125,9 +127,14 @@
                                     clip-rule="evenodd" />
                             </svg>
 
-                            <a href=""> Logout </a>
+                                {{-- <a href=""> Logout </a> --}}
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                <button>Logout</button>
+                                 </form>
+
                         </li>
-                    </ul>
+                </ul>
 
                 </div>
             </div>

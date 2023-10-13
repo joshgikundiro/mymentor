@@ -28,9 +28,6 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->password = bcrypt($request->password);
         $user->role = $request->role;
-        // $user->profilePicture = $fileName;
-
-        // $request->profilePicture->storeAs('public/images', $fileName);
         $user->save();
 
         if ($request->role == 1) {
@@ -43,7 +40,8 @@ class UserController extends Controller
             $mentee->save();
         }
 
-        return redirect()->route('index')->with([
+
+        return redirect()->route('login')->with([
             'message' => 'User added successfully!',
             'status' => 'success'
         ]);

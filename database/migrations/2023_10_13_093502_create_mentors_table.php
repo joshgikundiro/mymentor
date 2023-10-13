@@ -11,21 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mentees', function (Blueprint $table) {
+        Schema::create('mentors', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
-            $table->string('mentee_field')->nullable();
         });
-
-        Schema::table('mentees', function (Blueprint $table) {
+        // ⭐relation to the users table
+        Schema::table('mentors', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
-
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('mentees');
+        Schema::dropIfExists('mentors');
     }
 };

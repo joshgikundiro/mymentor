@@ -24,31 +24,23 @@
     {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    @if (Session::has('success'))
-    <div class="alert alert-success">
-        {{ Session::get('success') }}
-    </div>
-@endif
-    <div class="flex justify-center ">
+<body class="bg-[#F8F6F4]">
+     {{-- ⭐success alert⭐ --}}
+     @if (session('message'))
+     <div x-data="{show: true}" x-init="setTimeout(() => show =false, 3000)" x-show ="show" class="alert alert-{{ session('status') }} alert-dismissible fade show  bg-[#025fff] fade fixed-top md:ml-3 md:mt-5 md:py-2 px-2 show text-[14px] text-white w-[20%]" role="alert">
+         <strong>{{ session('message') }}</strong>
+         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     </div>
+     @endif
+     {{-- end alert --}}
+     {{-- ⭐success alert⭐ --}}
+
+
+ {{-- end  --}}
+    <div class="flex justify-center gap-5">
         <a href="/"><x-weblgo /></a>
     </div>
     <x-login />
 
-
-    <script>
-        document.getElementById('signupButton').addEventListener('click', function() {
-            const mentorRadio = document.getElementById('mentorRadio');
-            const menteeRadio = document.getElementById('menteeRadio');
-
-            if (mentorRadio.checked) {
-                // Redirect to the mentor sign-up page
-                window.location.href = '/signup/mentor';
-            } else if (menteeRadio.checked) {
-                // Redirect to the mentee sign-up page
-                window.location.href = '/signup/mentee';
-            }
-        });
-    </script>
 </body>
 </html>

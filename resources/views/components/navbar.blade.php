@@ -13,7 +13,7 @@
         </div>
         <div class="cta-nav sm:hidden md:flex md:items-center md:py-0 px-4 bg-[#025fff] text-white rounded-[5px]">
 
-            <a href="#">
+            <a href="/login">
                 <button class="  sm:px-[38px] sm:py-[7px]  bg-[#025fff] mt-0 text-white rounded-md ">Login</button>
             </a>
         </div>

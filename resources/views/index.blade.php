@@ -9,22 +9,15 @@
     <title>WebMentor | Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    {{-- <link rel="stylesheet" href="app.css"> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/bootstrap-icons.svg">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
-    {{-- fonts link --}}
-
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" /> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLY --}}
 
 
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
-
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine-ie11.js">
+   <script src="https://cdn.tailwindcss.com"></script>
 
 
 </head>
@@ -32,14 +25,14 @@
 
 <body class="antialiased ">
     <div class="container-fluid flex flex-col">
-        {{-- ⭐success alert⭐ --}}
-        @if (session('message'))
-            <div class="alert alert-{{ session('status') }} alert-dismissible fade show" role="alert">
-                <strong>{{ session('message') }}</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        @endif
-        {{-- end  --}}
+      {{-- ⚒️success alert⚒️ --}}
+     @if (session('message'))
+     <div x-data="{show: true}" x-init="setTimeout(() => show =false, 3000)" x-show ="show" class="alert alert-{{ session('status') }} alert-dismissible fade show  bg-[#025fff] fade fixed-top md:ml-3 md:mt-5 md:py-2 px-2 show text-[14px] text-white w-[20%]" role="alert">
+         <strong>{{ session('message') }}</strong>
+         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     </div>
+     @endif
+     {{-- end alert --}}
 
 
         <div class="sm:container-fluid   sm-px-0 md:flex md:flex-col relative md:gap-10">
@@ -71,9 +64,9 @@
                                     </x-slot:content>
                                 </x-btn-pri>
                             </a>
-                           
 
-                            <a href="/logins"><button
+
+                            <a href="/login"><button
                                     class="button sm:border-solid sm:border-2 sm:border-[#025fff]  text-[#025fff] sm:px-[42px] rounded-md sm:py-[5px] sm:mt-28 hover:text-[#fff]">Login</button></a>
                         </div>
                     </div>
@@ -133,7 +126,7 @@
                     </div>
                 </div>
             </div>
-            {{-- <hr class=" lg:mx-auto lg:mt-5 sm:hidden" style="width: 25%; position: relative; "> --}}
+
         </div>
         <div class=" sm:container-fluid md:container-fluid about pt-4 lg:flex lg:flex-col" id="about-us">
             {{-- <div id="about"> --}}
@@ -226,11 +219,7 @@
         <x-testimony />
     </div>
     <x-footer></x-footer>
-    {{-- </div> --}}
 
-    {{-- </div> --}}
-
-    {{-- </div> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">

@@ -21,6 +21,9 @@ return new class extends Migration
             $table->string('password');
             $table->string('profilePicture')->nullable();
             $table->enum('role', ['1', '2']);
+            $table->string('profession')->nullable();
+            $table->string('interest')->nullable();
+            $table->text('bio')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -13,7 +13,13 @@
 @extends('dash')
 @section('title', 'myMentor⭐welcome')
 @section('content')
-
+@if (session('success'))
+     <div x-data="{show: true}" x-init="setTimeout(() => show =false, 3000)" x-show ="show" class="alert alert-{{ session('status') }} alert-dismissible fade show  bg-[#025fff] fade fixed-top md:ml-3 md:mt-5 md:py-2 px-2 show text-[14px] text-white w-[20%]" role="alert">
+         <strong>{{ session('success') }}</strong>
+         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     </div>
+     @endif
+     {{-- end alert --}}
     <div class="container flex flex-col  gap-3">
         {{-- ⭐ welcome div⭐ --}}
         <div class=" flex w-80 flex-col md:flex-row md:items-center bg-[#f7f7f7] z-10  h-40 rounded-sm  flex-nowrap px-5">
@@ -25,7 +31,7 @@
 
         </div>
         <div class=" overflow-x-scroll lg:overscroll-none ">
-            @foreach ($users as $user)
+            {{-- @foreach ($users as $user)
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <img class="w-full h-48 object-cover object-center" src="{{ $user['image'] }}" alt="{{ $user['name'] }}">
             <div class="p-4">
@@ -37,7 +43,7 @@
                 </div>
             </div>
         </div>
-    @endforeach
+    @endforeach --}}
 
         </div>
 
