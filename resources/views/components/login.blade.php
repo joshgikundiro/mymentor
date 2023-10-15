@@ -30,12 +30,12 @@
                         @enderror
                     </div>
                     <input type="submit"
-                        class=" bg-[#025fff] sm:py-2 sm:rounded-md text-white font-bold col-4 mt-3 sm:w-full buttony "
+                        class=" bg-[#5cb85c] sm:py-2 sm:rounded-md text-white font-bold col-4 mt-3 sm:w-full buttony "
                         value="Login">
                 </div>
     </form>
     <div
-        class="lg:col flex flex-col md:bg-[#025fff] lg:flex-col sm:flex-col sm:w-full sm:mx-auto  sm:justify-center lg:justify-center content-center">
+        class="lg:col flex flex-col md:bg-[#5cb85c] lg:flex-col sm:flex-col sm:w-full sm:mx-auto  sm:justify-center lg:justify-center content-center">
 
         <div class="h2 mt-10 text-center sm:self-baseline md:mx-auto  sm:text-[#000] md:text-[#fff]"
             style="font-family: var(--font-3); font-size:var(--font-31);">

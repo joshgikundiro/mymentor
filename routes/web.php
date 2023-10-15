@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\MentorController;
 use App\Models\User;
+use App\Http\Controllers\mentorLoginController;
 
 
 use Illuminate\Contracts\Session\Session;
@@ -69,3 +70,7 @@ Route::delete('/mentors/requests/{id}', [MrequestController::class, 'deleteReque
 Route::get('/mlogin', function () {
     return view('mentorlogin');
 })->name('mentorlogin')->middleware('guest');
+
+Route::post('/mentorlogin', [mentorLoginController::class, 'store'])->name('mentorlogin')->middleware('guest');
+Route::post('/mentorlogout', [mentorLoginController::class, 'destroy'])->name('mentorlogout')->middleware('auth');
+Route::get('mentee', [MentorLoginController::class, 'display'])->name('admin2')->middleware('auth');
