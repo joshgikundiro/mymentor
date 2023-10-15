@@ -11,13 +11,9 @@ class MentorController extends Controller
 
     public function display()
     {
-
-        // $admin= Auth::user();
-        // return view('mentors.admin', compact('users','admin'));
-        // $users= User::query()->latest()->paginate(3);
-        $users = User::where('role', 1)->get();
+        $users = User::where('role', 1)->orderBy('created_at', 'desc')->paginate(3);
         return view('mentors.admin', compact('users'));
-        // return view('mentors.admin', compact('users'));
+
     }
     public function viewall(){
         // $users= User::all();
@@ -54,9 +50,12 @@ class MentorController extends Controller
 
     }
     // ⚒️function to show mentor view profile⚒️
-    public function showProfile(Mentor $mentor)
+    public function showProfile(User $mentor)
     {
 
-        return view('mentors.mentorprofile', ['mentor' => $mentor]);
+        return view('mentors.mentorprofile', compact('mentor'));
     }
 }
+
+
+

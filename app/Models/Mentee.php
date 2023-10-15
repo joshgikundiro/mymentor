@@ -9,9 +9,12 @@ class Mentee extends Model
 {
     use HasFactory;
     protected $guarded = ['id'];
-    
+
     public function mentee()
     {
         return $this->belongsTo(User::class);
     }
+
+    
+
 }

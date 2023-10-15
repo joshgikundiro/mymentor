@@ -10,7 +10,7 @@ use App\Models\User;
 
 use Illuminate\Contracts\Session\Session;
 use App\Http\Controllers\SessionController;
-
+use App\Http\Controllers\MrequestController;
 Route::get('/', function () {
     return view('index');
 })->name('index');
@@ -54,6 +54,18 @@ Route::get('allmentors', [MentorController::class, 'viewall'])->name('allmentors
 Route::get('profile', [MentorController::class, 'profileview'])->name('profile')->middleware('auth');
 Route::put('/profile/update', [MentorController::class, 'update'])->name('profile.update')->middleware('auth');
 Route::get('/profile/edit', [MentorController::class, 'profileedit'])->name('profile.edit')->middleware('auth');
-Route::get('/mentor/{mentor}',[MentorController::class, 'showProfile'])->name('mentor.profile')->middleware('auth')->where('mentor', '.+');
+
+Route::get('/mentor/{mentor}',[MentorController::class, 'showProfile'])->name('mentor.profile')->middleware('auth');
 
 
+//☠️mentorrequest routes☠️
+// Route::post('/send-mentorship-request/{mentor}', [MrequestController::class, 'sendRequest'])->name('send.mentorship.request');
+Route::post('/mentors/requests', [MrequestController::class, 'store'])->name('mentors.requests')->middleware('auth');
+Route::get('/mentors/requests', [MrequestController::class, 'showRequest'])->name('request')->middleware('auth');
+Route::delete('/mentors/requests/{id}', [MrequestController::class, 'deleteRequest'])->name('request.delete')->middleware('auth');
+
+
+// 📝Routes for mentor profile📝
+Route::get('/mlogin', function () {
+    return view('mentorlogin');
+})->name('mentorlogin')->middleware('guest');
