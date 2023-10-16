@@ -35,15 +35,15 @@
     </div>
     <div class="gap-4 justify-center lg:flex lg:mx-auto lg:w-[33%] md:flex md:flex-col my-4 sm:flex-col sm:my-0 sm:w-full"
     id="signup">
-    <form action="/mentorlogin" method="POST" class=" sm:flex sm:flex-col md:p-5 bg-[#f9f9f9] lg:w-50 ">
+    <form action="{{route('mentorlogin')}}" method="POST" class=" sm:flex sm:flex-col md:p-5 bg-[#f9f9f9] lg:w-50 ">
         @csrf
         <div class="row">
-            <div class="h2 p-4" style="font-family: var(--sans-1);font-weight:600;font-size:var(--font-25)">
-                Welcome back...</div>
+            <div class="h2 p-4 flex justify-center py-1" style="font-family: var(--sans-1);font-weight:600;font-size:var(--font-25)">
+                Mentor Login | <a href="login" class="px-1  rounded-sm bg-[#5cb85c] text-[#fff]">Mentee Login</a></div>
             <div class="col ">
                 <label for="">Email</label>
                 <input type="email" class="form-control" placeholder="ex: joedeepdoe@gmail.com" aria-label="Email"
-                    name="email" required>
+                    name="email">
                 @error('email')
                     <div class="text-red-500 text-sm">
                         {{ $message }}

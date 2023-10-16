@@ -27,11 +27,11 @@ class User extends Model implements Authenticatable{
 
     public function requester()
     {
-        return $this->hasMany(MentorshipRequest::class, 'ReceiverUserID', 'id');
+        return $this->hasMany(Mrequest::class, 'ReceiverUserID', 'id');
     }
     public function receiver()
     {
-        return $this->hasMany(MentorshipRequest::class, 'RequesterUserID', 'id');
+        return $this->hasMany(Mrequest::class, 'RequesterUserID', 'id');
     }
 }
 

@@ -3,24 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Mentor;
+use App\Models\Mentee;
+use App\Models\Mrequest;
+use Illuminate\Support\Facades\Auth;
 
 class MenteeController extends Controller
 {
-    public function display()
-    {
-      
-        $users = User::where('role', 1)->orderBy('created_at', 'desc')->paginate(3);
-        return view('mentees.admin', compact('users'));
 
-    }
-    public function viewall(){
-        // $users= User::all();
-        $users = User::where('role', 1)->get();
-        return view('mentors.allmentors', compact('users'));
-    }
-    public function profileview(){
-        $user= Auth::user();
-        return view('mentors.profile', compact('user'));
+
+    public function profileview()
+    {
+        $user = Auth::user();
+        return view('mentees.profile', compact('user'));
     }
     public function update(Request $request)
     {
@@ -44,14 +40,50 @@ class MenteeController extends Controller
     public function profileedit()
     {
         $user = Auth::user();
-        return view('mentors.profileupdate', compact('user'));
-
+        return view('mentees.profileupdate', compact('user'));
     }
     // ⚒️function to show mentor view profile⚒️
-    public function showProfile(User $mentor)
+
+
+    //☠️function to display requests☠️
+    public function display()
+    {
+        // Get the authenticated mentee's ID
+        $menteeId = Auth::user()->id;
+
+        $requests = Mrequest::where('ReceiverUserID', $menteeId)
+            ->where('status', 'pending')
+            ->with('requester')
+            ->paginate(3);
+
+        return view('mentees.admin', compact('requests'));
+    }
+    public function viewall()
+    {
+        $menteeId = Auth::user()->id;
+
+        $requests = Mrequest::where('ReceiverUserID', $menteeId)
+            ->where('status', 'pending')
+            ->with('requester')
+            ->get();
+
+        return view('mentees.requests', compact('requests'));
+    }
+
+    public function showProfile(User $mentee)
     {
 
-        return view('mentors.mentorprofile', compact('mentor'));
+        return view('mentees.mentee', compact('mentee'));
+    }
+    public function deleteRequest($id)
+    {
+        $requests = Mrequest::find($id);
+        if ($requests) {
+            $requests->delete();
+            return redirect()->back()->with('success', 'Request deleted successfully!');
+        } else {
+            return redirect()->back()->with('error', 'Request not found!');
+        }
     }
 }
-}
+

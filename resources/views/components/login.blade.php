@@ -3,12 +3,12 @@
     <form action="/session" method="POST" class=" sm:flex sm:flex-col md:p-5 bg-[#f9f9f9] lg:w-50 ">
         @csrf
         <div class="row">
-            <div class="h2 p-4" style="font-family: var(--sans-1);font-weight:600;font-size:var(--font-25)">
-                Welcome back...</div>
+            <div class="h2 p-4 flex justify-center" style="font-family: var(--sans-1);font-weight:600;font-size:var(--font-25)">
+               Mentee Login | <a href="mlogin"class="px-1  rounded-sm bg-[#025fff] text-[#fff]">Mentor Login</a></div>
             <div class="col ">
                 <label for="">Email</label>
                 <input type="email" class="form-control" placeholder="ex: joedeepdoe@gmail.com" aria-label="Email"
-                    name="email" required>
+                    name="email">
                 @error('email')
                     <div class="text-red-500 text-sm">
                         {{ $message }}
@@ -30,12 +30,13 @@
                         @enderror
                     </div>
                     <input type="submit"
-                        class=" bg-[#5cb85c] sm:py-2 sm:rounded-md text-white font-bold col-4 mt-3 sm:w-full buttony "
+                        class=" bg-[#025FFF] sm:py-2 sm:rounded-md text-white font-bold col-4 mt-3 sm:w-full buttony "
                         value="Login">
+
                 </div>
     </form>
     <div
-        class="lg:col flex flex-col md:bg-[#5cb85c] lg:flex-col sm:flex-col sm:w-full sm:mx-auto  sm:justify-center lg:justify-center content-center">
+        class="lg:col flex flex-col md:bg-[#025FFF] lg:flex-col sm:flex-col sm:w-full sm:mx-auto  sm:justify-center lg:justify-center content-center">
 
         <div class="h2 mt-10 text-center sm:self-baseline md:mx-auto  sm:text-[#000] md:text-[#fff]"
             style="font-family: var(--font-3); font-size:var(--font-31);">

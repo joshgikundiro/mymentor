@@ -42,7 +42,7 @@ class UserController extends Controller
 
 
         return redirect()->route('login')->with([
-            'message' => 'User added successfully!',
+            'message' => 'Registered successfully!',
             'status' => 'success'
         ]);
     }

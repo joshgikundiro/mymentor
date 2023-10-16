@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class MentorController extends Controller
 {
 
+   
     public function display()
     {
         $users = User::where('role', 1)->orderBy('created_at', 'desc')->paginate(3);

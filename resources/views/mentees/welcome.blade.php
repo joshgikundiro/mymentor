@@ -10,7 +10,7 @@
 
     }
 </style>
-@extends('dash')
+@extends('dash2')
 @section('title', 'myMentor⭐welcome')
 @section('content')
 @if (session('success'))

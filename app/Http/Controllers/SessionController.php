@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\UserController;
+use App\Models\User;
 
 class SessionController extends Controller
 {
@@ -14,26 +15,27 @@ class SessionController extends Controller
         ]);
     }
     public function store()
-    {
-        $attributes = request()->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ],[
-            'email.required' => 'Email is required',
-            'email/.email' => 'Enter a valid email address',
-            'password.required' => 'Password is required'
-        ]);
-        if (auth()->attempt($attributes)) {
-            session()->regenerate();
-            return redirect()->route('admin1');
-        }
-        else{
+{
+    $attributes = request()->validate([
+        'email' => 'required|email',
+        'password' => 'required'
+    ],[
+        'email.required' => 'Email is required',
+        'email/.email' => 'Enter a valid email address',
+        'password.required' => 'Password is required'
+    ]);
 
-            return back()->withErrors([
-                'email' => 'Unrecorgnized email address',
-                'password' => 'Wrong password, re-enter your password'
-            ])->withInput();
+    $user = User::where('email', $attributes['email'])->first();
 
-        }
+    if ($user && $user->role == 2 && auth()->attempt($attributes)) {
+        session()->regenerate();
+        return redirect()->route('admin1');
     }
+    else {
+        return back()->withErrors([
+            'email' => 'Unrecognized email address or invalid role',
+            'password' => 'Wrong password, please try again'
+        ])->withInput();
+    }
+}
 }

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class MrequestController extends Controller
 {
 
-
+    
     // ☠️☠️ function to show mentor request ☠️☠️
 
     public function store(Request $request)
@@ -43,7 +43,7 @@ class MrequestController extends Controller
 
         return view('mentors.requests', compact('requests'));
     }
-    
+
     public function deleteRequest($id)
     {
         $request = Mrequest::find($id);

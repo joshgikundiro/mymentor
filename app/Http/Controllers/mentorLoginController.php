@@ -3,21 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 namespace App\Http\Controllers;
+
 use App\Models\User;
 use App\Models\Mentor;
 use App\Models\Mentee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class mentorLoginController extends Controller
 {
-    public function display()
-    {
-        $users = User::where('role', 1)->orderBy('created_at', 'desc')->paginate(3);
-        return view('mentees.admin', compact('users'));
-
-    }
+   
 
     public function destroy()
     {
@@ -32,22 +30,22 @@ class mentorLoginController extends Controller
         $attributes = request()->validate([
             'email' => 'required|email',
             'password' => 'required'
-        ],[
+        ], [
             'email.required' => 'Email is required',
             'email/.email' => 'Enter a valid email address',
             'password.required' => 'Password is required'
         ]);
-        if (auth()->attempt($attributes)) {
+
+        $user = User::where('email', $attributes['email'])->first();
+
+        if ($user && $user->role == 1 && auth()->attempt($attributes)) {
             session()->regenerate();
-            return redirect()->route('admin1');
-        }
-        else{
-
+            return redirect()->route('admin2');
+        } else {
             return back()->withErrors([
-                'email' => 'Unrecorgnized email address',
-                'password' => 'Wrong password, re-enter your password'
+                'email' => 'Unrecognized email address or invalid role',
+                'password' => 'Wrong password, please try again'
             ])->withInput();
-
         }
     }
 }

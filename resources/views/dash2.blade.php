@@ -54,7 +54,7 @@
                     class="offcanvas-body fixed top-0 left-0 z-40 w-64 h-screen transition-transform  translate-x-0 ">
 
                     <nav class="flex flex-col">
-                        <a href="/mentor" class="flex  px-3"><x-weblgo-ff></x-weblgo-ff></a>
+                        <a href="/mentee" class="flex  px-3"><x-weblgo-ff></x-weblgo-ff></a>
                         <ul class="flex text-white flex-col font-semibold">
                             <li
                                 class=" flex mb-2 p-3 justify-start  space-x-4 w-100 hover:bg-[#5cb85c] hover:border-b-2">
@@ -66,7 +66,7 @@
                                         d="M16.403 12.652a3 3 0 000-5.304 3 3 0 00-3.75-3.751 3 3 0 00-5.305 0 3 3 0 00-3.751 3.75 3 3 0 000 5.305 3 3 0 003.75 3.751 3 3 0 005.305 0 3 3 0 003.751-3.75zm-2.546-4.46a.75.75 0 00-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <a href="profile">Profile</a>
+                                <a href="mprofile">Profile</a>
                             </li>
                             <li
                                 class=" flex mb-2 p-3 justify-start space-x-4 w-100 hover:bg-[#5cb85c] hover:border-b-2 ">
@@ -99,7 +99,7 @@
                                     <path
                                         d="M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 018-2.828A4.5 4.5 0 0118 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 01-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 01-.69.001l-.002-.001z" />
                                 </svg>
-                                <a href="/mentors/requests"> Requests </a>
+                                <a href="/allrequests"> Requests </a>
                             </li>
                             <li
                                 class=" flex mb-2 p-3 justify-start space-x-4 w-100 hover:bg-[#5cb85c] hover:border-b-2 ">
