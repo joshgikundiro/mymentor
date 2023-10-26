@@ -10,6 +10,7 @@
 
     }
 </style>
+
 @extends('dash2')
 @section('title', 'myMentor⭐welcome')
 @section('content')

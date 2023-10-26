@@ -17,7 +17,7 @@
     <div class="px-6 py-3">
             <h2 class="border-b border-slate-200 py-3 flex justify-center font-bold text[20px] ">Update your information</h2>
 
-            <form action="/profile/update" method="POST">
+            <form action="{{route('profile.update')}}" method="POST">
                 @csrf
                 @method('PUT')
 

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-use App\Models\Mentor;
-use App\Models\Mentee;
+use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 class MentorController extends Controller
 {
 
-   
+
     public function display()
     {
         $users = User::where('role', 1)->orderBy('created_at', 'desc')->paginate(3);
@@ -20,6 +20,10 @@ class MentorController extends Controller
         // $users= User::all();
         $users = User::where('role', 1)->get();
         return view('mentors.allmentors', compact('users'));
+    }
+    public function viewcourses(){
+        $courses = Course::all();
+        return view('mentors.viewcourses', compact('courses'));
     }
     public function profileview(){
         $user= Auth::user();
@@ -55,6 +59,10 @@ class MentorController extends Controller
     {
 
         return view('mentors.mentorprofile', compact('mentor'));
+    }
+    public function downloadcourse(Request $request,$file)
+    {
+        return response()->download(public_path('storage/images/' . $file));
     }
 }
 

@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Mentor;
-use App\Models\Mentee;
 use App\Models\Mrequest;
 use Illuminate\Support\Facades\Auth;
 

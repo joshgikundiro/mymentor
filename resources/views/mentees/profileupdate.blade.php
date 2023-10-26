@@ -7,8 +7,10 @@
 
     }
 </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 @extends('dash2')
-@section('title', 'myMentor⭐welcome')
+@section('title', 'myMentor | Edit mentor profile')
 @section('content')
 
 <div class="">
@@ -17,7 +19,7 @@
     <div class="px-6 py-3">
             <h2 class="border-b border-slate-200 py-3 flex justify-center font-bold text[20px] ">Update your information</h2>
 
-            <form action="/profile/update" method="POST">
+            <form action="/mprofile/update" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -50,7 +52,7 @@
                 <div class="pt-2">
                     <button type="submit" class=" mt-2 px-3 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Save Changes</button>
 
-                    <a href="/profile/edit">
+                    <a href="/mprofile/edit">
                         <button class="px-4 py-2 border-2 border-blue-600 text-black rounded hover:bg-blue-600">cancel</button>
                     </a>
                 </div>

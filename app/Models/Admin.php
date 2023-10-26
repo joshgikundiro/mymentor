@@ -5,14 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Course extends Model
+class Admin extends Model
 {
     use HasFactory;
-    protected $table='courses';
-    protected $fillable = [
-        'title',
-        'file',
-        'desc',
-    ];
-
+    protected $guarded =['id'];
+    public function admin()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

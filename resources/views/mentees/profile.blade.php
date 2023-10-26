@@ -7,8 +7,9 @@
 
     }
 </style>
+
 @extends('dash2')
-@section('title', 'myMentor⭐welcome')
+@section('title', 'myMentor | mentor profile')
 @section('content')
 
  {{-- ⚒️success alert⚒️ --}}
@@ -62,7 +63,7 @@
                     <div class="w-full px-4">
                         <p class="font-light leading-relaxed text-slate-600 mb-4">{{ auth()->user()->bio }}</p>
                         <!-- Button to open the modal -->
-                        <a href="/profile/edit">
+                        <a href="/mprofile/edit">
                             <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Edit my
                                 profile</button>
                         </a>

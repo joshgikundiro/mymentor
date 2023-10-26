@@ -66,7 +66,7 @@
                                         d="M16.403 12.652a3 3 0 000-5.304 3 3 0 00-3.75-3.751 3 3 0 00-5.305 0 3 3 0 00-3.751 3.75 3 3 0 000 5.305 3 3 0 003.75 3.751 3 3 0 005.305 0 3 3 0 003.751-3.75zm-2.546-4.46a.75.75 0 00-1.214-.883l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
                                         clip-rule="evenodd" />
                                 </svg>
-                                <a href="profile">Profile</a>
+                                <a href="/profile">Profile</a>
                             </li>
                             <li
                                 class=" flex mb-2 p-3 justify-start space-x-4 w-100 hover:bg-blue-700 hover:border-b-2 ">
@@ -90,7 +90,7 @@
                                     <path
                                         d="M3 15.055v-.684c.126.053.255.1.39.142 2.092.642 4.313.987 6.61.987 2.297 0 4.518-.345 6.61-.987.135-.041.264-.089.39-.142v.684c0 1.347-.985 2.53-2.363 2.686a41.454 41.454 0 01-9.274 0C3.985 17.585 3 16.402 3 15.055z" />
                                 </svg>
-                                <a href=""> Resources </a>
+                                <a href="/viewcourses"> Resources </a>
                             </li>
                             <li
                                 class=" flex mb-2 p-3 justify-start space-x-4 w-100 hover:bg-blue-700 hover:border-b-2 ">

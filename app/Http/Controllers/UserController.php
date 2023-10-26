@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Mentor;
 use App\Models\Mentee;
-
+use App\Models\Admin;
 class UserController extends Controller
 {
     public function index()
@@ -38,6 +38,10 @@ class UserController extends Controller
             $mentee = new Mentee;
             $mentee->user_id = $user->id;
             $mentee->save();
+        }elseif($request->role == 3){
+            $admin = new Admin;
+            $admin->user_id = $user->id;
+            $admin->save();
         }
 
 

@@ -17,7 +17,6 @@ return new class extends Migration
         $table->unsignedBigInteger('RequesterUserID');
         $table->unsignedBigInteger('ReceiverUserID');
         $table->string('Status'); 
-        $table->timestamp('Timestamp');
         $table->timestamps();
 
         // Define foreign key constraints if needed

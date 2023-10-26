@@ -1,13 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Course;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\MenteeController;
 use App\Http\Controllers\MentorController;
 use App\Models\User;
-use App\Http\Controllers\mentorLoginController;
 
 
 use Illuminate\Contracts\Session\Session;
@@ -16,9 +15,6 @@ use App\Http\Controllers\MrequestController;
 Route::get('/', function () {
     return view('index');
 })->name('index')->middleware('guest');
-
-
-
 
 // sample routes for courses
 Route::get('/courses', function () {
@@ -46,8 +42,6 @@ Route::post('/signup', [UserController::class, 'store'])->name('signup')->middle
 // 🔐Routes for authentication & login🔐
 Route::view('login', 'menteelogin')->name('login')->middleware('guest');
 Route::post('session', [SessionController::class, 'store'])->name('session');
-Route::view('mlogin', 'mentorlogin')->name('mlogin')->middleware('guest');
-Route::post('mentorlogin', [mentorLoginController::class, 'store'])->name('mentorlogin');
 //👋🏾 Logout route👋🏾
 Route::post('logout', [SessionController::class, 'destroy'])->name('logout');
 
@@ -60,10 +54,12 @@ Route::middleware('auth','mentee')->group(function () {
     Route::get('/profile/edit', [MentorController::class, 'profileedit'])->name('profile.edit');
     Route::get('/mentor/{mentor}',[MentorController::class, 'showProfile'])->name('mentor.profile');
     //☠️mentorrequest routes☠️
-    // Route::post('/send-mentorship-request/{mentor}', [MrequestController::class, 'sendRequest'])->name('send.mentorship.request');
     Route::post('/mentors/requests', [MrequestController::class, 'store'])->name('mentors.requests');
     Route::get('/mentors/requests', [MrequestController::class, 'showRequest'])->name('request');
     Route::delete('/mentors/requests/{id}', [MrequestController::class, 'deleteRequest'])->name('request.delete');
+
+    Route::get('/viewcourses', [MentorController::class, 'viewcourses'])->name('viewcourses');
+    Route::get('/download/{file}', [MentorController::class, 'downloadcourse'])->name('downloadcourse');
 });
 
 
@@ -82,3 +78,15 @@ Route::middleware('auth','mentor')->group(function () {
     Route::get('/mentee/{mentee}',[MenteeController::class, 'showProfile'])->name('mentee.profile');
     Route::delete('/mentee/requests/{id}', [MenteeController::class, 'deleteRequest'])->name('requests.delete');
 });
+
+//😒Routes for admin😒
+Route
+::middleware('auth','admin')->group(function(){
+    Route::get('admin',[AdminController::class, 'display'])->name('admin');
+    Route::get('admin/uploadcourseget',[AdminController::class, 'getcourses'])->name('uploadcourseget');
+    Route::post('admin/uploadcourse',[AdminController::class, 'postcourses'])->name('uploadcourse');
+    Route::get('adviewcourses',[AdminController::class, 'viewcourses'])->name('viewcourses');
+    Route::get('/mentor/{mentor}',[AdminController::class, 'showProfile'])->name('mentor.profile');
+    Route::delete('/courses/{id}', [AdminController::class, 'deleteCourse'])->name('course.delete');
+})
+?>

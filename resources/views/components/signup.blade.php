@@ -56,6 +56,7 @@
                     <option selected>Choose your profile type</option>
                     <option value="1">Mentor</option>
                     <option value="2">Mentee</option>
+                    <option value="3">Admin</option>
                 </select>
             </div>
         </div>

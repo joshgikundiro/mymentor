@@ -28,7 +28,6 @@
     <div class="flex justify-center ">
        <a href="/"><x-weblgo  /></a>
     </div>
-    <x-mentorsignup/>
-    <x-footer />
+    <x-mentorsignup/>    <x-footer />
 </body>
 </html>

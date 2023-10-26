@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\UserController;
 use App\Models\User;
 
 class SessionController extends Controller
@@ -30,6 +29,14 @@ class SessionController extends Controller
     if ($user && $user->role == 2 && auth()->attempt($attributes)) {
         session()->regenerate();
         return redirect()->route('admin1');
+    }
+    elseif($user && $user->role == 1 && auth()->attempt($attributes)){
+        session()->regenerate();
+        return redirect()->route('admin2');
+    }
+    elseif($user && $user->role == 3 && auth()->attempt($attributes)){
+        session()->regenerate();
+        return redirect()->route('admin');
     }
     else {
         return back()->withErrors([

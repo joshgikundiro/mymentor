@@ -4,7 +4,7 @@
         @csrf
         <div class="row">
             <div class="h2 p-4 flex justify-center" style="font-family: var(--sans-1);font-weight:600;font-size:var(--font-25)">
-               Mentee Login | <a href="mlogin"class="px-1  rounded-sm bg-[#025fff] text-[#fff]">Mentor Login</a></div>
+               Login  </div>
             <div class="col ">
                 <label for="">Email</label>
                 <input type="email" class="form-control" placeholder="ex: joedeepdoe@gmail.com" aria-label="Email"

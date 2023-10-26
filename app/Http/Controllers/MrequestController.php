@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
+// use App\Models\User;
 use App\Models\Mrequest;
 use Illuminate\Support\Facades\Auth;
 
 class MrequestController extends Controller
 {
 
-    
+
     // ☠️☠️ function to show mentor request ☠️☠️
 
     public function store(Request $request)
